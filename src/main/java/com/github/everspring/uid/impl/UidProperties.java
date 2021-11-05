@@ -41,6 +41,11 @@ public class UidProperties {
     private long epochSeconds = TimeUnit.MILLISECONDS.toSeconds(1550592000000L);
 
     /**
+     * uid生成器实现类
+     */
+    private String generatorImpl = "default";
+
+    /**
      * 是否容忍时钟回拨, 默认:true
      */
     private boolean enableBackward = true;
@@ -109,5 +114,13 @@ public class UidProperties {
 
     public void setMaxBackwardSeconds(long maxBackwardSeconds) {
         this.maxBackwardSeconds = maxBackwardSeconds;
+    }
+
+    public String getGeneratorImpl() {
+        return generatorImpl;
+    }
+
+    public void setGeneratorImpl(String generatorImpl) {
+        this.generatorImpl = generatorImpl;
     }
 }

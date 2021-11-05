@@ -49,6 +49,14 @@ PRIMARY KEY(ID)
 </dependency>
 ```
 ### 步骤3: 开始使用
+```shell
+@Resource
+private UidGenerator uidGenerator;
+
+long uid = uidGenerator.getUID();
+//根据uid逆向解析信息
+System.out.println(uidGenerator.parseUID(uid));
+```
 
 UidGenerator接口提供了 UID 生成和解析的方法，提供了两种实现: 
 - [DefaultUidGenerator](src/main/java/com/github/everspring/uid/impl/DefaultUidGenerator.java)  
@@ -58,23 +66,6 @@ UidGenerator接口提供了 UID 生成和解析的方法，提供了两种实现
 
 如对UID生成性能有要求, 请使用CachedUidGenerator
 
-```java
-//@Resource
-//private UidGenerator defaultUidGenerator;
-
-@Resource
-private UidGenerator cachedUidGenerator;
-
-@Test
-public void testSerialGenerate() {
-    // Generate UID
-    long uid = cachedUidGenerator.getUID();
-
-    // Parse UID into [Timestamp, WorkerId, Sequence]
-    // {"UID":"450795408770","timestamp":"2019-02-20 14:55:39","workerId":"27","sequence":"2"}
-    System.out.println(cachedUidGenerator.parseUID(uid));
-
-}
 ```
 ### 步骤4: 可选设置
 #### 自定义配置
@@ -87,6 +78,7 @@ uid:
   epochStr: "2019-02-20"   # 初始时间, 默认:"2019-02-20"
   enableBackward: true    # 是否容忍时钟回拨, 默认:true
   maxBackwardSeconds: 1    # 时钟回拨最长容忍时间（秒）, 默认:1
+  generatorImpl: default   # 有两个参数,default:用默认的;cached：效率更高
   CachedUidGenerator:     # CachedUidGenerator相关参数
     boostPower: 3          # RingBuffer size扩容参数, 可提高UID生成的吞吐量, 默认:3
     paddingFactor: 50      # 指定何时向RingBuffer中填充UID, 取值为百分比(0, 100), 默认为50

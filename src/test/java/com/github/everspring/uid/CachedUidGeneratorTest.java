@@ -25,8 +25,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author yutianbao
  * @author wujun
+ * @author everspring
  */
-//@Ignore
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
 public class CachedUidGeneratorTest {
