@@ -16,6 +16,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
+        <nexus.url>http://10.1.3.115:8081/repository/maven-public/</nexus.url>
+        <nexus-releases.url>http://10.1.3.115:8081/repository/hg-releases/</nexus-releases.url>
+        <nexus-snapshots.url>http://10.1.3.115:8081/repository/hg-snapshots/</nexus-snapshots.url>
     </properties>
 
     <licenses>
@@ -132,16 +135,42 @@
                     </plugin>
                 </plugins>
             </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
         </profile>
     </profiles>
+
+    <!--私服仓库地址-->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>${nexus.url}</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>${nexus.url}</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!--jar 私服部署地址-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>hg-snapshots</id>
+            <name>Nexus Snapshots Repository</name>
+            <url>${nexus-snapshots.url}</url>
+        </snapshotRepository>
+        <repository>
+            <id>hg-releases</id>
+            <name>Nexus Releases Repository</name>
+            <url>${nexus-releases.url}</url>
+        </repository>
+    </distributionManagement>
 </project>
