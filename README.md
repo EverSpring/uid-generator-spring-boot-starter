@@ -43,17 +43,17 @@ PRIMARY KEY(ID)
 当前项目打包，或从Maven仓库中引入uid-generator-spring-boot-starter包
 ```xml
 <dependency>
-    <groupId>com.github.wujun234</groupId>
+    <groupId>com.github.everspring</groupId>
     <artifactId>uid-generator-spring-boot-starter</artifactId>
-    <version>1.0.3.RELEASE</version>
+    <version>1.0.0.RELEASE</version>
 </dependency>
 ```
 ### 步骤3: 开始使用
 
 UidGenerator接口提供了 UID 生成和解析的方法，提供了两种实现: 
-- [DefaultUidGenerator](src/main/java/com/github/wujun234/uid/impl/DefaultUidGenerator.java)  
+- [DefaultUidGenerator](src/main/java/com/github/everspring/uid/impl/DefaultUidGenerator.java)  
 实时生成
-- [CachedUidGenerator](src/main/java/com/github/wujun234/uid/impl/CachedUidGenerator.java)  
+- [CachedUidGenerator](src/main/java/com/github/everspring/uid/impl/CachedUidGenerator.java)  
 生成一次id之后，按序列号+1生成一批id，缓存，供之后请求
 
 如对UID生成性能有要求, 请使用CachedUidGenerator

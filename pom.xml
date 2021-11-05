@@ -4,14 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.wujun234</groupId>
+    <groupId>com.github.EverSpring</groupId>
     <artifactId>uid-generator-spring-boot-starter</artifactId>
-    <version>1.0.3.RELEASE</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
 
     <name>uid-generator-spring-boot-starter</name>
     <description>An unique id generator based on baidu uid-generator</description>
-    <url>https://github.com/wujun234/uid-generator-spring-boot-starter</url>
 
     <!-- Properties -->
     <properties>
@@ -27,19 +26,6 @@
         </license>
     </licenses>
 
-    <scm>
-        <url>https://github.com/wujun234/uid-generator-spring-boot-starter</url>
-        <connection>https://github.com/wujun234/uid-generator-spring-boot-starter.git</connection>
-        <developerConnection>https://github.com/wujun234</developerConnection>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>wujun</name>
-            <email>wujun234@gmail.com</email>
-        </developer>
-    </developers>
-
     <!-- Dependencies -->
     <dependencies>
         <!-- spring-boot-autoconfigure -->
@@ -52,7 +38,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
+            <version>1.3.5</version>
         </dependency>
 
         <!-- Apache Commons -->
@@ -80,7 +66,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.1.3.RELEASE</version>
+                <version>1.5.22.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -136,20 +122,6 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- GPG -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
                                 </goals>
                             </execution>
                         </executions>
