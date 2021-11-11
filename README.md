@@ -1,4 +1,9 @@
 uid-generator-spring-boot-starter
+---
+感谢作者“wujun234"，在作者基础上做了以下修改：
+1. 把generator的实现方式改成了配置，不配置也有一个默认实现，uid.generatorImpl参数，见test里面的application.yml文件
+2. 添加yml提示
+3. 因项目需求，改了springboot版本，需要其他版本的可以自己更改
 ==========================
 基于 [百度UidGenerator](https://github.com/baidu/uid-generator), 做了以下改动：
 - 改造为spring-boot-starter的形式，不用部署为分布式，直接建表、在项目中引入，即可使用
